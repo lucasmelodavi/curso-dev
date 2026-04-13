@@ -1,6 +1,6 @@
 function Home(){
-    
-    <h1>Teste 6 </h1>
+    return<h1> teste 10 </h1>
+
 }
  
 export default Home;
