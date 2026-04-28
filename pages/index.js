@@ -39,7 +39,7 @@ function Home() {
           textShadow: "2px 2px 10px rgba(0,0,0,0.3)",
           animation: "fadeIn 1s ease forwards"
         }}>
-          💖 Te amo Gatinha 💖
+          💖 Te amo Gatinha  💖
         </h1>
       )}
 
