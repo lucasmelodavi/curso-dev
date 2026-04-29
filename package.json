@@ -25,9 +25,10 @@
   "dev": "next dev",
   "build": "next build",
   "start": "next start",
+  "vercel-build": "next build",
   "lint:check": "prettier --check .",
   "lint:fix": "prettier --write ."
-}
+},
   "author": "",
   "license": "MIT",
   "description": "",
