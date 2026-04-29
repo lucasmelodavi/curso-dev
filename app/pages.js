@@ -1,5 +1,1 @@
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Olá, mundo! Estou aprendendo Java 🚀");
-    }
-}
+console.log("Olá, mundo! Agora estou aprendendo JavaScript 🚀");
