@@ -1,3 +1,5 @@
-export default function Home() {
-  return <h1>Funcionando 🚀</h1>;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Olá, mundo! Estou aprendendo Java 🚀");
+    }
 }
