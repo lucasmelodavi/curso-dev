@@ -1,7 +1,3 @@
-export default function Page() {
-  return <button onClick={() => clicar()}>Clique</button>;
-}
-
-function clicar() {
-  console.log("clicou");
+export default function MinhaPagina() {
+  return <div>Olá</div>;
 }
