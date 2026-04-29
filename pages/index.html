@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jogo de Recorde</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 80px;
+    }
+    button {
+      font-size: 20px;
+      padding: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Jogo de Recorde</h1>
+  <p>Clique no botão o máximo de vezes em 10 segundos!</p>
+
+  <button onclick="clicar()">Clique aqui</button>
+
+  <h2 id="score">Score: 0</h2>
+  <h3 id="time">Tempo: 10</h3>
+
+  <script>
+    let score = 0;
+    let time = 10;
+    let gameStarted = false;
+
+    function clicar() {
+      if (!gameStarted) {
+        startGame();
+        gameStarted = true;
+      }
+      if (time > 0) {
+        score++;
+        document.getElementById("score").innerText = "Score: " + score;
+      }
+    }
+
+    function startGame() {
+      let timer = setInterval(() => {
+        time--;
+        document.getElementById("time").innerText = "Tempo: " + time;
+
+        if (time === 0) {
+          clearInterval(timer);
+          alert("Fim de jogo! Seu recorde foi: " + score);
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
