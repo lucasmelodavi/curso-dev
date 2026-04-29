@@ -23,12 +23,12 @@
     "tslib": "^2.8.1"
   },
   "scripts": {
-    "dev": "next dev",
-    "lint:check": "prettier --check  .",
-    "lint:fix": "prettier --write ."
-    "test": "jest",
-    "test:watch": "jest --watch"
-  },
+  "dev": "next dev",
+  "lint:check": "prettier --check .",
+  "lint:fix": "prettier --write .",
+  "test": "jest",
+  "test:watch": "jest --watch"
+},
   "author": "",
   "license": "MIT",
   "description": "",
