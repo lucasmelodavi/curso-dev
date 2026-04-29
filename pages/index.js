@@ -1,57 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Jogo de Reflexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+console.log("🎮 Jogo de Reflexo");
+console.log("Espere a mensagem 'AGORA!' e clique OK o mais rápido possível!");
 
-<body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#111; font-family:Arial;">
+let tempoEspera = Math.random() * 4000 + 2000;
 
-<div style="text-align:center;">
-  <h1 style="color:white;">⚡ Clique rápido!</h1>
-  <p style="color:lime;" id="status">Espere o botão aparecer...</p>
+setTimeout(() => {
+    console.log("🔥 AGORA!");
 
-  <button id="botao" style="
-    display:none;
-    padding:20px 40px;
-    font-size:20px;
-    border:none;
-    border-radius:10px;
-    background:red;
-    color:white;
-  ">CLIQUE!</button>
+    let inicio = Date.now();
 
-  <p style="color:white;" id="tempo"></p>
-</div>
+    alert("Clique OK o mais rápido possível!");
 
-<script>
-let botao = document.getElementById("botao");
-let status = document.getElementById("status");
-let tempo = document.getElementById("tempo");
+    let fim = Date.now();
 
-let startTime;
+    let tempoReacao = fim - inicio;
 
-function aparecerBotao() {
-  let delay = Math.random() * 3000 + 1000;
+    console.log("⏱️ Seu tempo de reação: " + tempoReacao + " ms");
 
-  setTimeout(() => {
-    botao.style.display = "inline-block";
-    status.innerText = "🔥 AGORA! Clique rápido!";
-    startTime = new Date().getTime();
-  }, delay);
-}
+    if (tempoReacao < 300) {
+        console.log("⚡ Insano!");
+    } else if (tempoReacao < 600) {
+        console.log("👍 Bom!");
+    } else {
+        console.log("🐢 Lento!");
+    }
 
-botao.onclick = function() {
-  let reaction = new Date().getTime() - startTime;
-  tempo.innerText = "⏱️ Seu tempo: " + reaction + "ms";
-
-  botao.style.display = "none";
-  status.innerText = "Espere de novo...";
-  aparecerBotao();
-};
-
-aparecerBotao();
-</script>
-
-</body>
-</html>
+}, tempoEspera);
