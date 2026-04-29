@@ -1,3 +1,3 @@
 export default function Home() {
-  return <h1>Funcionando 🚀</h1>;
+  return <h1>Site no ar 🚀</h1>;
 }
