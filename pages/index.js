@@ -1,8 +1,1 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-};
-
-module.exports = nextConfig;
+console.log("Código não é mágica — é prática e persistência 💻🔥");
