@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jogo de Recorde</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Jogo Mobile</title>
+
   <style>
     body {
+      margin: 0;
       font-family: Arial;
+      background: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      margin-top: 80px;
     }
+
     button {
-      font-size: 20px;
-      padding: 20px;
-      cursor: pointer;
+      font-size: 32px;
+      padding: 25px;
+      width: 80%;
+      max-width: 300px;
+      border: none;
+      border-radius: 15px;
+      background: #ff0055;
+      color: white;
+      touch-action: manipulation;
+    }
+
+    h1 {
+      font-size: 24px;
     }
   </style>
 </head>
+
 <body>
 
   <h1>🔥 Jogo de Recorde</h1>
-  <p>Clique no botão o máximo de vezes em 10 segundos!</p>
 
-  <button onclick="clicar()">Clique aqui</button>
+  <button id="btn">CLIQUE</button>
 
   <h2 id="score">Score: 0</h2>
   <h3 id="time">Tempo: 10</h3>
@@ -28,30 +48,34 @@
   <script>
     let score = 0;
     let time = 10;
-    let gameStarted = false;
+    let started = false;
 
-    function clicar() {
-      if (!gameStarted) {
-        startGame();
-        gameStarted = true;
-      }
-      if (time > 0) {
-        score++;
-        document.getElementById("score").innerText = "Score: " + score;
-      }
-    }
+    const btn = document.getElementById("btn");
 
-    function startGame() {
+    function start() {
       let timer = setInterval(() => {
         time--;
         document.getElementById("time").innerText = "Tempo: " + time;
 
         if (time === 0) {
           clearInterval(timer);
-          alert("Fim de jogo! Seu recorde foi: " + score);
+          btn.disabled = true;
+          alert("Seu recorde: " + score);
         }
       }, 1000);
     }
+
+    btn.addEventListener("click", () => {
+      if (!started) {
+        started = true;
+        start();
+      }
+
+      if (time > 0) {
+        score++;
+        document.getElementById("score").innerText = "Score: " + score;
+      }
+    });
   </script>
 
 </body>
