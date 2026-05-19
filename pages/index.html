@@ -1,56 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Jogo de Recorde</title>
+  <meta charset="UTF-8">
+  <title>Jogo do Número</title>
+
   <style>
     body {
+      background: #121212;
+      color: white;
       font-family: Arial;
       text-align: center;
-      margin-top: 80px;
+      margin-top: 100px;
     }
+
+    input, button {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      margin: 5px;
+    }
+
     button {
-      font-size: 20px;
-      padding: 20px;
+      background: crimson;
+      color: white;
       cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 24px;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>🔥 Jogo de Recorde</h1>
-  <p>Clique no botão o máximo de vezes em 10 segundos!</p>
+  <h1>🎲 Jogo do Número</h1>
 
-  <button onclick="clicar()">Clique aqui</button>
+  <p>Digite um número:</p>
 
-  <h2 id="score">Score: 0</h2>
-  <h3 id="time">Tempo: 10</h3>
+  <input type="number" id="numero">
+
+  <button onclick="jogar()">Jogar</button>
+
+  <div id="resultado"></div>
 
   <script>
-    let score = 0;
-    let time = 10;
-    let gameStarted = false;
+    function jogar() {
 
-    function clicar() {
-      if (!gameStarted) {
-        startGame();
-        gameStarted = true;
-      }
-      if (time > 0) {
-        score++;
-        document.getElementById("score").innerText = "Score: " + score;
-      }
-    }
+      // pega o número digitado
+      let numero = Number(document.getElementById("numero").value);
 
-    function startGame() {
-      let timer = setInterval(() => {
-        time--;
-        document.getElementById("time").innerText = "Tempo: " + time;
+      // máquina soma +1
+      let maquina = numero + 1;
 
-        if (time === 0) {
-          clearInterval(timer);
-          alert("Fim de jogo! Seu recorde foi: " + score);
-        }
-      }, 1000);
+      // mostra resultado
+      document.getElementById("resultado").innerHTML =
+      `
+      Você escolheu: ${numero} <br><br>
+      🤖 Máquina escolheu: ${maquina} <br><br>
+       Você perdeu HAHAHA !
+      `;
     }
   </script>
 
