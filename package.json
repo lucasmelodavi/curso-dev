@@ -24,7 +24,10 @@
     "tslib": "^2.8.1"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:down": "docker compose -f infra/compose.yaml down",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
     "build": "next build",
     "start": "next start",
     "vercel-build": "next build",
