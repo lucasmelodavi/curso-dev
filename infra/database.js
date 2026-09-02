@@ -8,12 +8,14 @@ import { Client } from "pg";
         database: process.env.POSTGRES_DATABASE,
         password: process.env.POSTGRES_PASSWORD,
     });
-    await client.connect();
-    const result = await client.query(queryObject);
-    await client.end();
-    return result;
-}
-
-export default{
+    try{const result = await client.query(queryObject);
+      await client.end();
+      return result;
+    } catch (error) {
+       console.error(error);
+    }finally{
+     await client.connect();
+    }
+    export default{
     query: query,
-};
+    };
