@@ -1,13 +1,13 @@
-import { queryObjects } from "node:v8";
+
 import { Client } from "pg";
 
  async function getNewClient(){
    const client = new Client({
       host:process.env.POSTGRES_HOST,
       port: process.env.POSTGRES_PORT,
-      user:process.env.POSTGRES_DB,
-      database:Process.env.POSTGRES_DB,
-      password: process.env.POSTEGRES_PASSWORD,
+      user:process.env.POSTGRES_USER,
+      database:process.env.POSTGRES_DB,
+      password: process.env.POSTGRES_PASSWORD,
    });
 
    await client.connect();
@@ -19,7 +19,7 @@ import { Client } from "pg";
 
    try{
       client = await getNewClient();
-      const result = await client.query(queryObjects);
+      const result = await client.query(queryObject);
       return result;
    }catch(error) {
       console.error(error);

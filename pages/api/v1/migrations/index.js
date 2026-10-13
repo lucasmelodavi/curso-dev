@@ -3,7 +3,7 @@ import { join } from "node:path";
 import database from "infra/database.js";
 
 export default async function migrations(request, response){
-  if (request>method !== "GET" && request.method !== "POST") {
+  if (request.method !== "GET" && request.method !== "POST") {
     return response.status(405).json({
       error: `Method "${request.method}" not allowed`,
     });
@@ -12,15 +12,15 @@ export default async function migrations(request, response){
   let dbClient;
 
   try {
-    dbClient + await database.getNewClient();
+    dbClient = await database.getNewClient();
 
     const migrations = await MigrationRunner({
       dbClient,
       dir: join("infra", "migrations"),
       direction: "up",
-      varbose: true,
+      verbose: true,
       migrationsTable: "pgmigrations",
-      drRun: request.method ==="GET",
+      dryRun: request.method ==="GET",
     });
 
     if(request.method === "POST" && migrations.length > 0) {
@@ -28,7 +28,7 @@ export default async function migrations(request, response){
     }
     return response.status(200).json(migrations);
   }finally{
-    await dbClient.end();
+    await dbClient?.end();
   }
 
 }
